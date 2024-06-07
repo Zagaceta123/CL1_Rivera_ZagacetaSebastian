@@ -24,8 +24,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(
                         auth ->
                                 auth.requestMatchers("/auth/login",
-                                                "/auth/register",
-                                                "/auth/save-user",
+                                                "/auth/registrar",
+                                                "/auth/guardar-usuario",
                                                 "/resources/**",
                                                 "/static/**",
                                                 "/css/**",

@@ -22,12 +22,12 @@ public class LoginController {
         return "auth/frmlogin";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/registrar")
     public String registro(){
         return "/auth/frmregistrar";
     }
 
-    @PostMapping("/save-user")
+    @PostMapping("/guardar-usuario")
     public String guardarUsuario(@ModelAttribute Usuario usuario){
         usuarioService.guardarUsuario(usuario);
         return "/auth/frmlogin";
