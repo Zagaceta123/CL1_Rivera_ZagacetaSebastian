@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pe.edu.cibertec.CL1_RiveraZagaceta_Sebastian.Model.bd.Usuario;
 import pe.edu.cibertec.CL1_RiveraZagaceta_Sebastian.Model.dto.UsuarioDto;
+import pe.edu.cibertec.CL1_RiveraZagaceta_Sebastian.Service.UsuarioService;
 
-public class @AllArgsConstructor
+@AllArgsConstructor
 @Controller
 @RequestMapping("/auth")
 public class LoginController {
@@ -23,7 +24,7 @@ public class LoginController {
 
     @GetMapping("/register")
     public String registro(){
-        return "/auth/frmregister";
+        return "/auth/frmregistrar";
     }
 
     @PostMapping("/save-user")
