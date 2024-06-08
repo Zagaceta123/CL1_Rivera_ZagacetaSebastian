@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/bootstrap/bootstrap.css}" rel="stylesheet"/>
+    <script th:src="@{/js/bootstrap/bootstrap.bundle.js}" type="text/javascript"></script>
+</head>
+<body>
+<nav th:replace="~{layout::menu}"></nav>
+<div class="card">
+    <div class="card-header text-bg-dark">
+        <h2>CAMBIAR CONTRASEÑA</h2>
+    </div>
+    <div class="card-body">
+        <form th:action="@{/auth/cambiar-contrasena}" method="post">
+            <div class="form-group">
+                <label for="nuevaContraseña">Nueva Contraseña:</label>
+                <input type="password" id="nuevaContraseña" name="nuevaContraseña" class="form-control"
+                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                       title="No cumple con los  8 caracteres requeridos"
+                       required/>
+            </div>
+            <div class="form-group">
+                <label for="confirmarContraseña">Confirmar Nueva Contraseña:</label>
+                <input type="password" id="confirmarContraseña" name="confirmaContraseña" class="form-control" required/>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">CAMBIAR CONTRASEÑA</button>
+            <a class="btn btn-secondary" href="/auth/dashboard">ATRÁS</a>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

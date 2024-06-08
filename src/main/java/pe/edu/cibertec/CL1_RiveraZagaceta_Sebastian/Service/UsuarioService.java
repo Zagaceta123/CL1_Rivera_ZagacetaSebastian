@@ -32,4 +32,23 @@ public class UsuarioService implements IUsuarioService {
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         return usuarioRepository.save(usuario);
     }
+    public void CambiarPassword(String username, String newPassword) {
+        Usuario usuario = usuarioRepository.findByNomusuario(username);
+        if (usuario != null) {
+            if (!validarPassword(newPassword)) {
+                throw new IllegalArgumentException("La contraseña no cumple con los parametros establecidos.");
+            }
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String password = passwordEncoder.encode(newPassword);
+            usuario.setPassword(password);
+            usuarioRepository.save(usuario);
+        } else {
+            throw new IllegalArgumentException("Usuario no encontrado: " + username);
+        }
+    }
+
+    private boolean validarPassword(String password) {
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+        return password.matches(regex);
+    }
 }
