@@ -56,7 +56,7 @@ public class LoginController {
     @PostMapping("/cambiar-contrasena")
     public String cambiarContraseña(@RequestParam("nuevaContraseña") String newPassword,
                                   Authentication authentication,
-                                  Redigit arectAttributes redirectAttributes) {
+                                  RedirectAttributes redirectAttributes) {
         String username = authentication.getName();
         try {
             usuarioService.CambiarPassword(username, newPassword);
